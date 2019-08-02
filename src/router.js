@@ -18,9 +18,17 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/login.vue')
+      path: '/loginLayout',
+      name: 'loginLayout',
+      redirect: '/loginLayout/login',
+      component: () => import('./views/layout/loginLayout.vue'),
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('./views/login.vue')
+        },
+      ]
     },
   ]
 })
