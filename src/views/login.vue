@@ -59,7 +59,9 @@
                                         <div class="remember-psd">
                                             <input class="checked" type="checkbox" name="" id="">
                                             <span class="remember-tips">两周内免登录</span>
-                                            <span class="forget-psd">忘记密码</span>
+                                            <span class="forget-psd">
+                                                <router-link to="retrievePsd">忘记密码</router-link>
+                                            </span>
                                         </div>
                                         <div @click="loginSubmit" class="loginSubmit">登录</div>
                                     </div>
@@ -700,7 +702,7 @@ export default {
                                         top: 2px;
                                         margin-right: 5px;
                                     }
-                                    .remember-tips, .forget-psd {
+                                    .remember-tips, .forget-psd >a {
                                         font-size: 12px;
                                         color: #666;
                                         font-weight: 400;
@@ -709,7 +711,7 @@ export default {
                                         float: right;
                                         margin-right: 7px;
                                         cursor: pointer;
-                                        &:hover {
+                                        &:hover a {
                                             text-decoration: underline;
                                             color: #F3262D;
                                         }

@@ -5,13 +5,39 @@
             <div class="login-top-info">
                 <a href="/" class="logo" :style="backgroundDiv">
                 </a>
-                <span class="logo-tips">欢迎登录</span>
+                <span class="logo-tips">{{this.$route.meta.title}}</span>
             </div>
-            <!-- 承载子组件内容 -->
-            <router-view></router-view>
         </div>
+        <!-- 承载子组件内容 -->
+        <router-view></router-view>
         <div class="login-bottom">
-            <div class="login-bottom-info"></div>
+            <div class="login-bottom-info">
+                <p class="bottom-list">
+                    <a>关于我们</a>
+                    <em>|</em>
+                    <a>联系我们</a>
+                    <em>|</em>
+                    <a>商家入驻</a>
+                    <em>|</em>
+                    <a>友情链接</a>
+                    <em>|</em>
+                    <a>站点地图</a>
+                    <em>|</em>
+                    <a>手机商城</a>
+                    <em>|</em>
+                    <a>销售联盟</a>
+                    <em>|</em>
+                    <a>商城社区</a>
+                    <em>|</em>
+                    <a>企业文化</a>
+                    <em>|</em>
+                    <a>帮助中心</a>
+                    <em>|</em>
+                    <a>留言板</a>
+                    <a>粤ICP备18040617号-1</a>
+                </p>
+                <p class="bottom-simple-info">© 2005-{{new Date().getFullYear()}} 凌天众媒 版权所有，并保留所有权利。广东 深圳 E-mail: Service@zhongmei66.com</p>
+            </div>
         </div>
     </div>
 </template>
@@ -64,14 +90,36 @@ export default {
     .login-bottom {
         width: 100%;
         height: 119px;
-        position: absolute;
-        top: 705px;
+        margin-top: 55px;
         .login-bottom-info {
-            width: 920px;
+            // width: 1000px;
             height: 100%;
-            background: #666;
+            // background: rgb(161, 143, 143);
             margin: 0 auto;
             clear: both;
+            .bottom-list {
+                >a {
+                    // float: left;
+                    // user-select: none;
+                    font-size: 12px;
+                    color: #666;
+                    padding: 0 8px;
+                    text-decoration: none;
+                    &:hover {
+                        color: #F3262D;
+                        cursor: pointer;
+                    }
+                }
+                >em {
+                    font-size: 12px;
+                    color: #666;
+                }
+            }
+            .bottom-simple-info {
+                font-size: 12px;
+                color: #666;
+                margin-top: 5px;
+            }
         }
     }
 </style>
