@@ -16,7 +16,7 @@ export default new Router({
       //   path:'/header.vue',
       //   name:'header.vue',
       //   component: () => import('./components/header.vue')
-      // }
+      // } 
     },
     {
       path: '/about',
@@ -49,25 +49,92 @@ export default new Router({
         },
       ]
     },
+    // 雇主中心展示页
     {
       path: '/userCenter',
       name: 'userCenter',
       component: () => import('./views/user_center/userCenter.vue'),
+      
       children: [
         {
+          // 雇主中心首页
           path: '/',
           name: 'homePage',
-          component: () => import('./views/user_center/homePage.vue')
-  
+          component: () => import('./views/user_center/homePage.vue'),
   
         },
+        // 我的订单
         {
-        path: 'myOrder',
-        name: 'myOrder',
-        component: () => import('./views/user_center/myOrder.vue')
-
-
-      },
+          path: 'myOrder',
+          name: 'myOrder',
+          component: () => import('./views/user_center/myOrder.vue'),
+        },
+        // 我的评价
+        {
+          path: 'myEvaluate',
+          name: 'myEvaluate',
+          component: () => import('./views/user_center/myEvaluate.vue'),
+        },
+        // 我的发票
+        {
+          path: 'myInvoice',
+          name: 'myInvoice',
+          component: () => import('./views/user_center/myInvoice.vue'),
+        },
+         // 我的退款
+         {
+          path: 'myRefund',
+          name: 'myRefund',
+          component: () => import('./views/user_center/myRefund.vue'),
+        },
+        // 基本资料
+        {
+          path: 'myData',
+          name: 'myData',
+          component: () => import('./views/user_center/myData.vue'),
+        },
+         // 银行卡管理
+         {
+          path: 'myBank',
+          name: 'myBank',
+          component: () => import('./views/user_center/myBank.vue'),
+        },
+         // 实名认证
+         {
+          path: 'realName',
+          name: 'realName',
+          component: () => import('./views/user_center/realName.vue'),
+        },
+          // 修改绑定手机
+          {
+            path: 'revisionPhone',
+            name: 'revisionPhone',
+            component: () => import('./views/user_center/revisionPhone.vue'),
+          },
+           // 修改登录密码
+           {
+            path: 'revisionPass',
+            name: 'revisionPass',
+            component: () => import('./views/user_center/revisionPass.vue'),
+          },
+           // 我发布的线索
+           {
+            path: 'myThread',
+            name: 'myThread',
+            component: () => import('./views/user_center/myThread.vue'),
+          },
+           // 交易消息
+           {
+            path: 'tradeNews',
+            name: 'tradeNews',
+            component: () => import('./views/user_center/tradeNews.vue'),
+          },
+           // 系统消息
+           {
+            path: 'systemNews',
+            name: 'systemNews',
+            component: () => import('./views/user_center/systemNews.vue'),
+          },
     ]
     }
   ]

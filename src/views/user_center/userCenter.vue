@@ -1,44 +1,49 @@
 <template>
+<!-- 雇主中心左边导航 -->
   <div class="user_center">
-    <comHeader/>
+    <comHeader />
     <div class="user">
       <div class="user_cen_left">
         <h2>雇主中心</h2>
         <div class="user_cen_top">
           <h3>交易管理</h3>
           <ul class="nav_center trading_center">
-            <li> <router-link to="/userCenter/myOrder">我的订单</router-link></li>
-            <li>我的评价</li>
-            <li>我的发票</li>
-            <li>我的退款</li>
+            <li>
+              <router-link to="/userCenter/myOrder">我的订单</router-link>
+            </li>
+            <li>
+              <router-link to="/userCenter/myEvaluate">我的评价</router-link>
+              </li>
+            <li><router-link to="/userCenter/myInvoice">我的发票</router-link></li>
+            <li><router-link to="/userCenter/myRefund">我的退款</router-link></li>
           </ul>
           <h3>个人资料</h3>
           <ul class="nav_center personal_data">
-            <li>基本资料</li>
-            <li>银行卡管理</li>
+            <li><router-link to="/userCenter/myData">基本资料</router-link></li>
+            <li><router-link to="/userCenter/myBank">银行卡管理</router-link></li>
           </ul>
           <h3>账户管理</h3>
           <ul class="nav_center account management">
-            <li>实名认证</li>
-            <li>修改绑定手机</li>
-            <li>修改登录密码</li>
+            <li><router-link to="/userCenter/realName">实名认证</router-link></li>
+            <li><router-link to="/userCenter/revisionPhone">修改绑定手机</router-link></li>
+            <li><router-link to="/userCenter/revisionPass">修改登录密码</router-link></li>
           </ul>
           <h3>我发布的</h3>
           <ul class="nav_center ma_issue">
-            <li>我发布的任务</li>
-            <li>我发布的线索</li>
+            <!-- <li>我发布的任务</li> -->
+            <li><router-link to="/userCenter/myThread">我发布的线索</router-link></li>
           </ul>
           <h3>消息中心</h3>
           <ul class="nav_center personal_data">
-            <li>交易中心</li>
-            <li>系统消息</li>
+            <li><router-link to="/userCenter/tradeNews">交易消息</router-link></li>
+            <li><router-link to="/userCenter/systemNews">系统消息</router-link></li>
           </ul>
         </div>
       </div>
       <div class="user_cen_right">
         <!-- <myOrder/> -->
-        
-        <router-view/>
+
+        <router-view />
       </div>
     </div>
     <comFooter />
@@ -52,7 +57,7 @@ export default {
   name: "userCenter",
   components: {
     comHeader,
-    comFooter,
+    comFooter
     // myOrder
   }
 };
@@ -61,12 +66,13 @@ export default {
 .user_center {
   width: 100%;
   // min-height: 710px;
-  background: #F4F4F4;
-    .user {
+  background: #f5f5f5;
+  .user {
     width: 1210px;
     // min-height: 710px;
     margin: 0 auto;
     position: relative;
+    overflow: auto;
     .user_cen_left {
       float: left;
       background: #fff;
@@ -81,28 +87,37 @@ export default {
         border-bottom: 1px solid #eee;
         line-height: 49px;
       }
-      .user_cen_top{
-        h3{
+      .user_cen_top {
+        h3 {
           font-size: 16px;
           margin-top: 9px;
         }
-        .nav_center{
+        .nav_center {
           margin-bottom: 20px;
           margin-top: 10px;
-          li{
-                color: #666;
-                font-size: 14px;
-                line-height: 27px;
+          li {
+            color: #666;
+            font-size: 14px;
+            line-height: 27px;
+            a {
+              text-decoration: none;
+              color: #666;
+              &:hover {
+                color: #ff0027;
               }
+            }
+            .router-link-active {
+              color: #ff0027;
+            }
+          }
         }
-       
       }
     }
-    .user_cen_right{
+    .user_cen_right {
       float: left;
       width: 1030px;
       // min-height: 645px;
-      background: #fff;
+      // background: #fff;
       margin-left: 20px;
       margin-top: 20px;
       overflow: auto;

@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="header_footer">
+    <div class="header_footer" v-if="$route.meta.isHeader == true">
         <div class="header_nav">
             <span class="nav_block">
                 <div>全媒体资源分类</div>                          
@@ -106,7 +106,7 @@ export default {
 <style lang="less" scoped>
 .comHeader {
   width: 100%;
-  height: 170px;
+  // height: 170px;
 //   background: rgba(244, 244, 244, 1);
   .header_top {
     width: 100%;
