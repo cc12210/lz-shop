@@ -6,7 +6,8 @@ import filters from './util/filters'
 import * as tool from './util/tool'
 Vue.config.productionTip = false
 import components from './components'
-import ElementUI from 'element-ui'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 // 注册全局过滤器
 Object.keys(filters).forEach(key => {  
   Vue.filter(key, filters[key])  

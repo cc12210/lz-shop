@@ -24,9 +24,30 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/login.vue')
+      path: '/loginLayout',
+      name: 'loginLayout',
+      redirect: '/loginLayout/login',
+      component: () => import('./views/layout/loginLayout.vue'),
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('./views/login.vue'),
+          meta: {title: '欢迎登录'}
+        },
+        {
+          path: 'bindAccount',
+          name: 'bindAccount',
+          component: () => import('./views/bindAccount.vue'),
+          meta: {title: '欢迎登录'}
+        },
+        {
+          path: 'retrievePsd',
+          name: 'retrievePsd',
+          component: () => import('./views/retrievePassword.vue'),
+          meta: {title: '找回密码'}
+        },
+      ]
     },
     {
       path: '/userCenter',
