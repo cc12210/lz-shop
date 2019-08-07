@@ -154,6 +154,7 @@ export default {
     width: 100%;
     height: 97px;
     background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
     .header_center_logo {
       width: 1210px;
       height: 97px;
@@ -180,7 +181,6 @@ export default {
             height: 30px;
             width: 480px;
             border: 2px solid #f3262d;
-            border-radius: 4px;
             .sel_name {
               width: 101px;
               background: #fff;
@@ -326,25 +326,27 @@ export default {
 
 <style lang="less">
 // 修改element 样式
-.el-input-group__append {
-  padding: 0 19px;
-}
-.el-input-group__append, .el-input-group__prepend{
-    border: 0;
-}
-.el-input__inner{
-    border: 0;
-    height: 30px;
-}
-.el-button{
-    height: 30px;
-}
-.el-input-group__append .el-button{
-    margin: -2px -19px;
-    line-height: 0;
-}
-.el-input__icon{
-    line-height: 30px;
+.sel_input {
+  .el-input-group__append {
+    padding: 0 19px;
+  }
+  .el-input-group__append, .el-input-group__prepend{
+      border: 0;
+  }
+  .el-input__inner{
+      border: 0;
+      height: 30px;
+  }
+  .el-button{
+      height: 30px;
+  }
+  .el-input-group__append .el-button{
+      margin: -2px -19px;
+      line-height: 0;
+  }
+  .el-input__icon{
+      line-height: 30px;
+  }
 }
 </style>
 

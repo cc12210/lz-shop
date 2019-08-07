@@ -51,7 +51,7 @@
                     </div>
                     <div class="item code">
                         <label for="code">验证码</label>
-                        <input v-model="codeNum" class="item-inp" type="text" id="code" placeholder="请输入验证码">
+                        <input v-model="codeNumInfo" class="item-inp" type="text" id="code" placeholder="请输入验证码">
                         <div class="get-code" v-if="!isGetCode" @click="getCode">{{codeInfo}}</div>
                         <div v-else class="get-code getting-code">
                             重新获取({{codeNum}})
@@ -93,6 +93,7 @@ export default {
             isGetCode: false,
             // 定时时间
             codeNum: 60,
+            codeNumInfo: '',
             // 定时器
             timerCode: null,
             // 用户手机号
@@ -145,7 +146,7 @@ export default {
                 this.errPhoneInfoShow = true;
                 return;
             }
-            if (!this.codeNum) {
+            if (!this.codeNumInfo) {
                 return;
             }
             if (!(/^[\w]{6,16}$/.test(this.userPsd))) {

@@ -56,6 +56,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.main-login {
+    background: #FFF;
+}
     .login-top {
         width: 100%;
         // background: #ccc;
