@@ -108,6 +108,7 @@
                     <span>
                         当前剩余技术服务免费额度¥{{freeMoney}}
                     </span>
+                    <!-- 这个需要加一个跳转  或者显示技术费率详情的事件 -->
                     <router-link to="/" class="free-detail">
                         技术费率详情>
                     </router-link>
