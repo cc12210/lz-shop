@@ -53,17 +53,23 @@ export default new Router({
     {
       path: '/userCenter',
       name: 'userCenter',
-      component: () => import('./views/user_center/userCenter.vue'),
-      
+      component: () => import('./views/user_center/userCenter.vue'),     
       children: [
         {
           // 雇主中心首页
           path: '/',
-          name: 'homePage',
+          name: '/homePage',
           component: () => import('./views/user_center/homePage.vue'),
+        
   
         },
-        // 我的订单
+        // 账户余额
+        {
+          path: 'myDeposit',
+          name: 'myDeposit',
+          component: () => import('./views/user_center/myDeposit.vue'),
+        },
+                // 我的订单
         {
           path: 'myOrder',
           name: 'myOrder',

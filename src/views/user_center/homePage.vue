@@ -26,7 +26,8 @@
       <div class="user_money">
         <div class="balance">
           <span class="balance_one">111.11</span>
-          <span class="balance_two">账户余额</span>
+          <span class="balance_two">
+          <router-link to="/userCenter/myDeposit">账户余额</router-link> </span>
         </div>
         <div class="tack_maney">提现</div>
       </div>
@@ -124,7 +125,7 @@
         <span>我发布的线索</span>
         <span>查看全部 ></span>
       </div>
-       <div class="my_task_content shop_none" v-if="shopItem.length==0">
+       <div class="my_task_content shop_none" v-if="tastItem.length==0">
            <img src="" alt="暂无数据">
            <span>您还没发过线索哦</span>
            <el-button class="shop_but">去找服务</el-button>
@@ -168,9 +169,9 @@ export default {
             //   {orderName:"我是服务名称我是服务名称我是服务名称我是我是",orderMoney:"￥1120"}
         ],
         shopItem:[
-            // {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"},
-            //  {shopImg:"img",shopName:"标价招商低价詹松",shopMoney:"112221"},
-            //   {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"}
+            {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"},
+             {shopImg:"img",shopName:"标价招商低价詹松",shopMoney:"112221"},
+              {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"}
         ],
         tastItem:[
             // {tastMoney:"1002",tastName:"LED大屏全国广场",tastLook:"12",tastJoin:"20",tastPeo:"直客",tastTime:"2019-09-08"},
@@ -180,7 +181,12 @@ export default {
         ]
 
     };
-  }
+  },
+//  methods:{
+//    change(){
+//      this.$router.push({ path:'/userCenter/homePage/myDeposit'})
+//    }
+//  }
 };
 </script>
 <style lang="less" scoped>
