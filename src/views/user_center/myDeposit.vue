@@ -17,10 +17,29 @@
         <div style="display: inline-block">搜索：</div>
         <el-input
           v-model="search"
-          style="display: inline-block;width: 1300px"
+          style="display: inline-block;width: 200px"
           placeholder="请输入搜索内容"
         ></el-input>
       </div>
+      <div class="dormitoryData">
+      <el-table
+        ref="dormitoryTable"
+        :data="tables"
+        tooltip-effect="dark"
+        stripe
+        style="width: 100%">
+        <el-table-column label="操作时间" prop="user_time">
+        </el-table-column>
+        <el-table-column label="类型" prop="user_type">
+        </el-table-column>
+        <el-table-column label="交易金额" prop="user_money">
+        </el-table-column>
+        <el-table-column label="余额" prop="user_balance">
+        </el-table-column>
+        <el-table-column label="交易说明" prop="user_explain ">
+        </el-table-column>
+      </el-table>
+    </div>
     </div>
   </div>
 </template>
