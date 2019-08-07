@@ -11,8 +11,8 @@
                     <li><router-link to="/businessCenter/businessInfo">店铺资料</router-link></li>
                     <li><router-link to="/businessCenter/businessSkill">店铺技能</router-link></li>
                     <li><router-link to="/businessCenter/authenticationName">认证中心</router-link></li>
+                    <li><router-link to="/businessCenter/payDeposit">缴纳保证金</router-link></li>
                     <!-- 下面三个为为跳转，不属于当前路由下 -->
-                    <li><router-link to="/123">缴纳保证金</router-link></li>
                     <li><router-link to="/123">我的店铺</router-link></li>
                     <li><router-link to="/123">店铺评价</router-link></li>
                 </ul>

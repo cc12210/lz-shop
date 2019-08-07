@@ -39,6 +39,11 @@ export default new Router({
               name: 'authenticationName',
               component: () => import('./views/businessCenter/authenticationName.vue')
             },
+            {
+              path: 'payDeposit',
+              name: 'payDeposit',
+              component: () => import('./views/businessCenter/payDeposit.vue')
+            },
           ]
         }
       ]
