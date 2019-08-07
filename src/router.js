@@ -12,11 +12,36 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      // children:{
-      //   path:'/header.vue',
-      //   name:'header.vue',
-      //   component: () => import('./components/header.vue')
-      // }
+      children:[
+        {
+          path: 'businessCenter',
+          name: 'businessCenter',
+          redirect: '/businessCenter/businessHome',
+          component: () => import('./views/businessCenter/index.vue'),
+          children: [
+            {
+              path: 'businessHome',
+              name: 'businessHome',
+              component: () => import('./views/businessCenter/businessHome.vue')
+            },
+            {
+              path: 'businessInfo',
+              name: 'businessInfo',
+              component: () => import('./views/businessCenter/businessInfo.vue')
+            },
+            {
+              path: 'businessSkill',
+              name: 'businessSkill',
+              component: () => import('./views/businessCenter/businessSkill.vue')
+            },
+            {
+              path: 'authenticationName',
+              name: 'authenticationName',
+              component: () => import('./views/businessCenter/authenticationName.vue')
+            },
+          ]
+        }
+      ]
     },
     {
       path: '/about',

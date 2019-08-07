@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <comHeader/>
+    <router-view></router-view>
     <comFooter/>
   </div>
 </template>
