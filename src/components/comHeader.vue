@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-    <div class="header_footer" v-if="$route.meta.isHeader">
+    <div class="header_footer" v-if="$route.meta.isHeader == true">
         <div class="header_nav">
             <span class="nav_block">
                 <div>全媒体资源分类</div>                          

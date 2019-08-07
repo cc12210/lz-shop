@@ -1,6 +1,7 @@
 <template>
+<!-- 雇主中心首页 -->
   <div class="first_page">
-    <div class="fir_scroll">我是滚动消息</div>
+    <!-- <div class="fir_scroll">我是滚动消息</div> -->
     <!-- 个人资料 -->
     <div class="fir_data">
       <div class="triangle_down"></div>
@@ -17,10 +18,9 @@
         </div>
         <div class="user_data_bottom">
           <p class="user_news">
-            未读站内信
-            <i>(3)</i>
+            未读站内信<i>(3)</i>
           </p>
-          <span class="user_news_in">进入消息中心></span>
+          <span class="user_news_in"> 进入消息中心 ></span>
         </div>
       </div>
       <div class="user_money">
@@ -37,13 +37,26 @@
       <div class="fir_order">
         <div class="fir_order_head">
           <span class="order">交易订单</span>
-          <span class="more">更多</span>
+          <span class="more">全部订单 ></span>
         </div>
-        <ul>
-          <li>
+        <ul v-if="orderList.length==0" class="shop_none order_none">
+            <img src="" alt="暂无数据">
+           <span>您还没有交易订单哦</span>
+           <el-button class="shop_but">去找服务</el-button>
+        </ul>
+        <ul v-else>
+          <!-- <li>
             <div class="order_name">
               <span>我是服务</span>
-              <span>100</span>
+              <span>￥100</span>
+            </div>
+            <div class="order_state">托管</div>
+            <div class="order_data">订单详情</div>
+          </li> -->
+          <li v-for="(item_order,index) in orderList" :key="index">
+              <div class="order_name">
+              <span>{{item_order.orderName}}</span>
+              <span>{{item_order.orderMoney}}</span>
             </div>
             <div class="order_state">托管</div>
             <div class="order_data">订单详情</div>
@@ -51,23 +64,32 @@
         </ul>
       </div>
       <div class="my_car">
-        <span class="shop_car">我的购物车</span>
-        <div class="shop_data">
+        <div class="shop_car">
+            <span>我的购物车</span>
+            <span>查看全部 ></span>
+        </div >
+        <div class="shop_data shop_none" v-if="shopItem.length==0">
+           <img src="" alt="暂无数据">
+           <span>您还没有服务加入购物车哦</span>
+           <el-button class="shop_but">去找服务</el-button>
+        </div>
+
+        <div class="shop_data" v-else>
           <ul>
-            <li>
-              <img src alt="h商品" class="shop_img" />
-              <span class="shop_name">购物车</span>
-              <span class="shop_money">￥111</span>
+            <li v-for="(shop_item ,index) in shopItem" :key="index">
+              <img src="" alt="h商品" class="shop_img" />
+              <span class="shop_name">{{shop_item.shopName}}</span>
+              <span class="shop_money">￥{{shop_item.shopMoney}}</span>
             </li>
             <!-- <li v-for="">
 
             </li>-->
           </ul>
         </div>
-        <el-button class="shop_but">去购物车</el-button>
+        <el-button class="shop_but" v-if="shopItem.length!=0" >去购物车</el-button>
       </div>
     </div>
-    <div class="my_task">
+    <!-- <div class="my_task">
       <div class="my_task_head">
         <span>我发布的任务</span>
         <span>查看全部 ></span>
@@ -96,29 +118,34 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="my_clue">
-         <div class="my_task_head">
+        <div class="my_task_head">
         <span>我发布的线索</span>
         <span>查看全部 ></span>
       </div>
-      <div class="my_task_content">
+       <div class="my_task_content shop_none" v-if="shopItem.length==0">
+           <img src="" alt="暂无数据">
+           <span>您还没发过线索哦</span>
+           <el-button class="shop_but">去找服务</el-button>
+       </div>
+      <div class="my_task_content" v-else>
         <ul>
-          <li>
+          <li v-for="(tast_item,index) in tastItem" :key="index">
             <div class="my_task_name">
               <span>
-                <p>￥800</p>LED大屏全国广场地标价招商昭和那个登山泛水
+                <p>￥{{tast_item.tastMoney}}</p>{{tast_item.tastName}}
               </span>
               <span>
-                <p>21人</p>浏览
+                <p>{{tast_item.tastLook}}人</p>浏览
               </span>
               <span>
-                <p>8人</p>已投标
+                <p>{{tast_item.tastJoin}}人</p>已投标
               </span>
             </div>
             <div class="classify">
-                <span>直客</span>
-                <span>发布时间：2019-09-08</span>
+                <span>{{tast_item.tastPeo}}</span>
+                <span>发布时间：{{tast_item.tastTime}}</span>
             </div>
             <div class="task_details">
                 线索详情
@@ -133,7 +160,26 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+        // 交易订单数据
+        orderList:[
+            // {orderName:"我是服务名称我是服务名称我是服务名称我是我是服务名称我是服务名",orderMoney:"￥110"},
+            //  {orderName:"温热温热荣威哦认为日文平日物品",orderMoney:"￥1102"},
+            //   {orderName:"我是服务名称我是服务名称我是服务名称我是我是",orderMoney:"￥1120"}
+        ],
+        shopItem:[
+            // {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"},
+            //  {shopImg:"img",shopName:"标价招商低价詹松",shopMoney:"112221"},
+            //   {shopImg:"img",shopName:"LED大屏全国广场地标价招商低价詹松",shopMoney:"111"}
+        ],
+        tastItem:[
+            // {tastMoney:"1002",tastName:"LED大屏全国广场",tastLook:"12",tastJoin:"20",tastPeo:"直客",tastTime:"2019-09-08"},
+            // {tastMoney:"1003",tastName:"LED大屏全国广场地标价招商昭和那个反倒对双方发生",tastLook:"124",tastJoin:"20",tastPeo:"直客",tastTime:"2019-09-08"},
+            // {tastMoney:"1020",tastName:"LED大屏全国广场地标价招商昭和标价招商昭和那个反倒对双方发生",tastLook:"123",tastJoin:"20",tastPeo:"中间商（非A）",tastTime:"2019-09-08"},
+            // {tastMoney:"1500",tastName:"LED大屏全国广场地标价招商昭和那个反倒对双方发生",tastLook:"12",tastJoin:"20",tastPeo:"直客",tastTime:"2019-09-08"}
+        ]
+
+    };
   }
 };
 </script>
@@ -147,37 +193,36 @@ export default {
   .fir_data {
     width: 100%;
     height: 215px;
-    background: #ccc;
     margin-bottom: 21px;
     .triangle_down {
       width: 0;
       height: 0;
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
-      border-top: 9px solid red;
+      border-top: 9px solid #f5f5f5;
       position: absolute;
       left: 448px;
     }
-    //  .triangle_up {
-    //     width: 0;
-    //     height: 0;
-    //     border-left: 7px solid transparent;
-    //     border-right: 7px solid transparent;
-    //     border-bottom: 9px solid red;
-    //     position: absolute;
-    //     left: 448px;
-    //     bottom: 0;
-    // }
+     .triangle_up {
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 9px solid #f5f5f5;
+        position: absolute;
+        left: 448px;
+        bottom: 0;
+        top: 226px;
+    }
     .user_data {
       width: 275px;
       height: 215px;
       float: left;
-      background: blue;
+      background: #fff;
       border-right: 1px dashed #e8e8e8;
       .user_data_top {
         width: 100%;
         height: 158px;
-        background: #ccc;
         .user_img {
           //   float: left;
           display: block;
@@ -218,6 +263,7 @@ export default {
         }
         .user_news_in {
           //   float: left;
+          cursor: pointer;
           color: #0066cc;
         }
       }
@@ -226,7 +272,7 @@ export default {
       width: 275px;
       height: 215px;
       float: left;
-      background: yellowgreen;
+      background: #fff;
       .balance {
         margin-top: 27%;
         span {
@@ -244,6 +290,7 @@ export default {
       }
       .tack_maney {
         margin-top: 20px;
+        cursor: pointer;
         color: #0066cc;
         font-size: 14px;
       }
@@ -259,58 +306,77 @@ export default {
   .fir_order_car {
     width: 100%;
     min-height: 500px;
-    background: #ccc;
+    // background: #ccc;
     .fir_order {
       width: 659px;
       height: 500px;
       float: left;
-      background: pink;
+      background: #fff;
       .fir_order_head {
         width: 100%;
         height: 46px;
-        background: tan;
         line-height: 46px;
         font-size: 14px;
-        border-bottom: 1px solid #e8e8e8;
+        // border-bottom: 1px solid #e8e8e8;
         .order {
           float: left;
           margin-left: 20px;
+          color: #222;
+          font-size: 16px;
         }
         .more {
           float: right;
           margin-right: 30px;
+          color: #999;
+          font-size: 12px;
+          cursor: pointer;
+          &:hover{
+
+              color: #ff0027;
+          }
         }
       }
       ul {
+          padding: 0 20px;
         li {
           width: 100%;
-          height: 70px;
-          background: gold;
+          height: 118px;
           font-size: 14px;
-          border-bottom: 1px solid #e8e8e8;
+          border-top: 1px solid #eee;
           .order_name {
             float: left;
             width: 400px;
-            height: 70px;
-            background: darkcyan;
+            height: 118px;
             span {
               text-align: left;
               margin-left: 20px;
               display: block;
+              font-size: 14px;
+              color: #333;
             }
             & > span:first-child {
-              margin-top: 10px;
-              margin-bottom: 10px;
+              margin-top: 30px;
+              margin-bottom: 8px;
+            }
+            & > span:last-child {
+              color: #ff0027;
+              font-size: 16px;
             }
           }
           .order_state {
             margin-left: 20px;
-            line-height: 70px;
+            line-height: 118px;
+           
           }
           .order_data {
-            line-height: 70px;
+            line-height: 118px;
             float: right;
             margin-right: 30px;
+             color: #0066cc;
+             cursor: pointer;
+            &:hover{
+                color: #ff0027;
+            }
           }
         }
       }
@@ -324,48 +390,69 @@ export default {
       height: 500px;
       float: left;
       margin-left: 20px;
-      background: yellowgreen;
+      background: #fff;
       .shop_car {
         width: 331px;
         height: 46px;
         display: block;
-        background: aqua;
         //   border-bottom: 1px solid #e8e8e8;
         text-align: left;
         line-height: 46px;
         margin-left: 20px;
         font-size: 14px;
+        &>span:last-child{
+            float: right;
+            margin-right: 10px;
+            color: #999;
+            font-size: 12px;
+            cursor: pointer;
+            &:hover{
+                color: #ff0027;
+            }
+        }
       }
       .shop_data {
         width: 100%;
         height: 400px;
-        background: lightcoral;
-        border-top: 1px solid #eee;
+        // border-top: 1px solid #eee;
         ul {
+            padding: 0 20px;
           li {
             width: 100%;
-            height: 70px;
-            background: aliceblue;
+            height: 106px;
+            border-top: 1px solid #eee;
             .shop_img {
-              width: 90px;
-              height: 60px;
+              width: 142px;
+              height: 86px;
               float: left;
               background: goldenrod;
-              margin: 5px 40px 0 20px;
+              margin: 10px 13px 0 0px;
             }
             .shop_name {
-              float: left;
-              line-height: 50px;
-              font-size: 16px;
+              display: block;
+              width: 153px;
+            //   float: left;
+              font-size: 14px;
+              color: #333;
+              margin-left: 155px;
+              text-align: left;
+            //   margin-top: 22px;
+            padding-top: 10px;
             }
             .shop_money {
-              line-height: 50px;
+            //   display: block;
+            //   float: left;
+              width: 30px;
+              height: 14px;
               color: #f3262d;
+              margin-top: 15px;
               font-weight: 600;
+              float: left;
             }
           }
         }
       }
+     
       .shop_but {
         margin-top: 13px;
         line-height: 8px;
@@ -376,7 +463,7 @@ export default {
     width: 100%;
     min-height: 537px;
     margin-top: 21px;
-    background: aqua;
+    background: #fff;
     .my_task_head {
       width: 100%;
       height: 46px;
@@ -402,14 +489,11 @@ export default {
         li {
           width: 100%;
           height: 96px;
-          background: forestgreen;
           border-top: 1px solid #eee;
           .my_task_name {
             width: 302px;
             height: 100%;
             float: left;
-            background: #666;
-
             span {
               float: left;
               line-height: 32px;
@@ -420,6 +504,9 @@ export default {
             }
             & > span:first-child {
               float: left;
+              width: 280px;
+              text-align: left;
+              margin-left: 10px;
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
@@ -434,6 +521,7 @@ export default {
             }
              & > span:nth-child(2){
                  margin-right: 11px;
+                 margin-left: 10px;
              }
             & > span:nth-child(2), & > span:nth-child(3) {
                 color: #999;
@@ -445,10 +533,13 @@ export default {
             }
           }
           .classify{
-              width: 554px;
+            //   width: 554px;
               height: 100%;
-              background: hotpink;
               float: left;
+              margin-left: 220px;
+              span{
+                  text-align: left;
+              }
               &>span:first-child{
                   display: block;
                   margin-top: 22px;
@@ -456,13 +547,15 @@ export default {
                   font-size: 14px;
               }
                &>span:last-child{
+                   display: block;
                   font-size: 12px;
                   color: #999;
-                  margin-left: 65px;
+                //   margin-left: 65px;
               }
           }
           .task_details{
-              float: left;
+              float: right;
+              margin-right: 86px;
               line-height: 97px;
               font-size: 14px;
               color: #0066cc;
@@ -476,19 +569,60 @@ export default {
             &>span:last-child{
                   font-size: 12px;
                   color: #999;
-                  margin-left: 91px!important;
+                //   margin-left: 91px!important;
               }
        }
   }
 }
+ .shop_none{
+     
+          img{
+              display: inline-block;
+              width: 90px;
+              height: 115px;
+              background: gold;
+              margin-top: 28%;
+          }
+          span{
+              display: block;
+              font-size: 14px;
+              line-height: 30px;
+              color: #666;
+          }
+
+      }
+.order_none{
+    img{
+        margin-top: 16%;
+    }
+}
+.my_task_content{
+    
+     img{
+        margin-top: 14%;
+    }
+}
 </style>
-<style>
+<style <style lang="less">
 .shop_but {
   width: 105px;
   height: 32px;
   color: #f3262d;
   border-radius: 0;
   border: 1px solid #f3262d;
+  &:hover{
+      background: #f3262d;
+      color: #fff;
+      border: none;
+  }
+}
+.shop_none{
+    .shop_but{
+        margin-top: 10px;
+        width: 104px;
+        height: 30px;
+        line-height: 5px!important;
+    }
 }
 </style>
 
