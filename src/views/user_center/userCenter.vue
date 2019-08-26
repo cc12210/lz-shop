@@ -77,6 +77,7 @@ export default {
       float: left;
       background: #fff;
       width: 160px;
+      margin-top: 1px;
       h2 {
         font-size: 16px;
         color: #333;

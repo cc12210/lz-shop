@@ -20,7 +20,7 @@
           <p class="user_news">
             未读站内信<i>(3)</i>
           </p>
-          <span class="user_news_in"> 进入消息中心 ></span>
+          <span class="user_news_in"><router-link to="/userCenter/tradeNews"> 进入消息中心 ></router-link></span>
         </div>
       </div>
       <div class="user_money">
@@ -29,7 +29,8 @@
           <span class="balance_two">
           <router-link to="/userCenter/myDeposit">账户余额</router-link> </span>
         </div>
-        <div class="tack_maney">提现</div>
+        <div class="tack_maney">
+        <router-link to="/userCenter/take_money">提现</router-link></div>
       </div>
       <div class="user_banner"></div>
     </div>
@@ -191,6 +192,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .first_page {
+  a { text-decoration:none; }
   width: 100%;
   .fir_scroll {
     position: absolute;
@@ -268,9 +270,10 @@ export default {
           }
         }
         .user_news_in {
-          //   float: left;
-          cursor: pointer;
-          color: #0066cc;
+          cursor: pointer;        
+          a{
+            color: #0066cc;
+          }
         }
       }
     }
@@ -290,15 +293,21 @@ export default {
           font-weight: 600;
         }
         .balance_two {
-          font-size: 14px;
+          a{
+             font-size: 14px;
           color: #666;
+          }
+         
         }
       }
       .tack_maney {
         margin-top: 20px;
-        cursor: pointer;
+        a{
+          cursor: pointer;
         color: #0066cc;
         font-size: 14px;
+        }
+        
       }
     }
     .user_banner {

@@ -172,7 +172,7 @@
             </p>
             <p class="task-flow-info">
                 <span>说明：</span>
-                <span>完善擅长技能，增加您的实力，让雇主更快匹配你。</span>
+                <span>完善店铺资料，增加您的实力，让雇主更加相信你。</span>
             </p>
             <p class="task-flow-now">
                 <span>进度：</span>
@@ -189,7 +189,7 @@
             </p>
             <p class="task-flow-info">
                 <span>说明：</span>
-                <span>申请实名认证，增加您的信用，让雇主更放心。</span>
+                <span>完善店铺资料，增加您的实力，让雇主更加相信你。</span>
             </p>
             <p class="task-flow-now">
                 <span>进度：</span>
@@ -206,13 +206,13 @@
             </p>
             <p class="task-flow-info">
                 <span>说明：</span>
-                <span>缴纳保证金，增加您的信用，让雇主更安心。</span>
+                <span>完善店铺资料，增加您的实力，让雇主更加相信你。</span>
             </p>
             <p class="task-flow-now">
                 <span>进度：</span>
                 <span class="task-flow-state">未完成</span>
             </p>
-            <span class="task-flow-submit" @click="goDetail('payDeposit')">
+            <span class="task-flow-submit">
                 立即缴纳
             </span>
         </div>
@@ -593,7 +593,6 @@ export default {
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
-                user-select: none;
             }
         }
         .user-info {

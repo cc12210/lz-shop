@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <comHeader/>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
+<div class="home">
+  我是首页
+</div>
     <comFooter/>
   </div>
 </template>
